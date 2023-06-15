@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer components {
+  .drumBtnConfig{
+    @apply w-20 h-20 bg-center bg-cover bg-no-repeat my-2 text-blue-600 text-6xl inline-block;
+  }
+  .pressedDrum{
+    box-shadow: 0 3px 5px 0 rgb(255, 255, 255);
+    opacity:0.5;
+  }
+}
+
