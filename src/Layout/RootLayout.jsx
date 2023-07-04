@@ -5,9 +5,9 @@ import "./RootLayout.scss";
 export default function RootLayout() {
   return (
     <main className="layout">
-        <Navigation />
-        <Outlet />
-        <StarsCanvas />
+      <Navigation />
+      <Outlet />
+      <StarsCanvas />
     </main>
-  )
+  );
 }

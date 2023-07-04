@@ -1,5 +1,6 @@
-import { default as StarsCanvas } from "../Layout/backgroundcanvas/Star";
-import { default as Navigation } from "../Layout/navigation/Navigation";
-import { default as RootLayout } from "../Layout/RootLayout";
+import { default as StarsCanvas } from "./backgroundcanvas/Star";
+import { default as Navigation } from "./navigation/Navigation";
+import { default as RootLayout } from "./RootLayout";
+import { default as NotFound } from "./NotFound";
 
-export { StarsCanvas, Navigation, RootLayout };
+export { StarsCanvas, Navigation, RootLayout, NotFound };

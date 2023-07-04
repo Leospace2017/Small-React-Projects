@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 
-import { ACTIONS, initialState, reducer } from "./data.js";
+import { ACTIONS, initialState, reducer } from "./data";
 
 
 const VanTheme = createContext(null);

@@ -1,10 +1,14 @@
+import { useEffect } from "react";
+
 export const ACTIONS = {
   START_STOP: "START-STOP",
+  RESET: "RESET",
   GEAR_UP: "GEAR-UP",
   GEAR_DOWN: "GEAR-DOWN",
   SPEED_UP: "SPEED-UP",
   SPEED_DOWN: "SPEED-DOWN",
   CALCULATE_DISTANCE: "CALCULATE_DISTANCE",
+  DISTANCE_EVERY_SECOND: "DISTANCE_EVERY_SECOND"
 };
 
 function gearControl(num) {
@@ -14,11 +18,13 @@ function speedControl(num) {
   return num > 350 ? 350 : num < 0 ? 0 : num;
 }
 
+
 export const initialState = () => {
   const initialValue = {
     gear: 0,
     speed: 0,
     distance: "",
+    kmhDistance:0,
   };
   return {
     engineOn: false,
@@ -31,6 +37,18 @@ export const reducer = (state, action) => {
     case ACTIONS.START_STOP:
       return { ...state, engineOn: !state.engineOn };
 
+    case ACTIONS.RESET:
+      if (state.engineOn === false) {
+        return {
+          ...state,
+          actions: {
+            ...state.actions,
+            gear: 0,
+            speed:0,
+            kmhDistance:0,
+          },
+        };
+      }
     case ACTIONS.GEAR_UP:
       if (state.engineOn) {
         return {
@@ -103,6 +121,14 @@ export const reducer = (state, action) => {
           actions: { ...state.actions, distance: newDistance },
         };
       }
+
+      case ACTIONS.DISTANCE_EVERY_SECOND:
+        if(state.engineOn){
+          const kmhDistance = (state.actions.speed / 3.6).toFixed(2)
+            return {...state, actions:{...state.actions, kmhDistance: state.actions.kmhDistance + parseFloat(kmhDistance) }}
+        }
+
+
 
     default:
       return state;

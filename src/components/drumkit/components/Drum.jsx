@@ -67,9 +67,9 @@ export function Drum() {
   return (
     <div
       id="Drumkit"
-      className={`h-screen ^flex flex-col items-center ${
+      className={`h-screen flex flex-col items-center ${
         isFocus ? "outline-2 outline-red-600" : ""
-      } w-6/12 m-auto md:justify-center mt-14`}
+      } w-10/12 m-auto md:justify-center mt-14`}
       onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
     >
@@ -77,7 +77,7 @@ export function Drum() {
         DrumKit 🥁(afterFocus)
         <span className="text-blue-700">Press/Click_Keys</span>
       </h2>
-      <div className="flex flex-col items-center md:flex-row">
+      <div className="flex flex-col items-center md:flex-row md:justify-around">
         <DrumButton
           className={`a bg-tom1  drumBtnConfig`}
           content="a"
