@@ -1,0 +1,16 @@
+
+    .front{
+
+        transform: rotateY(90deg);
+    }
+
+.flipped {
+    .front{
+
+        transform: rotateY(0deg);
+    }
+    .back{
+        transform: rotateY(90deg);
+    }
+    
+}

@@ -1,26 +1,14 @@
-import React,{useState} from "react";
-
-
-
-import "./App.scss";
-import {
-  Note,
-  Navigation,
-  Tictactoc,
-  DrumKit,
-  StarsCanvas,
-} from "./component/index";
+import { router } from "./routes";
+import { RouterProvider } from "react-router-dom";
+import "./index.css"
 
 export default function App() {
-
-
+  
   return (
-    <div id="layout">
-      <Navigation />
-      <Note />
-      <DrumKit />
-      <Tictactoc />
-      <StarsCanvas />
-    </div>
+      <RouterProvider router={router} />
   );
 }
+
+
+
+
