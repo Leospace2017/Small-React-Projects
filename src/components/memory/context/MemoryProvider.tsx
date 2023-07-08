@@ -1,5 +1,5 @@
 import { useReducer, useEffect, createContext, useContext } from "react";
-import { cardsImages } from "../images/data.ts";
+import { cardsImages } from "./images/index.js";
 
 const MemoryContext = createContext(null);
 
