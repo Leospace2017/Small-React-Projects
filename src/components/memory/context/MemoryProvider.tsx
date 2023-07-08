@@ -1,5 +1,5 @@
 import { useReducer, useEffect, createContext, useContext } from "react";
-import { cardsImages } from "../images/index";
+import { cardsImages } from "../images/data.ts";
 
 const MemoryContext = createContext(null);
 
@@ -15,7 +15,7 @@ const ACTIONS = {
   TOGGLE: "TOGGLE",
 };
 
-function memoryInitial() {
+function memoryInitial():object {
   return {
     cards: [],
     turns: 0,
@@ -91,10 +91,10 @@ function reducer(state, action) {
   }
 }
 
-export default function MemoryProvider({ children }) {
+export default function MemoryProvider({ children } :{ children :React.ReactNode}) {
   const [memoryData, dispatch] = useReducer(reducer, memoryInitial());
 
-  const handleChoice = (card) => {
+  const handleChoice = (card:React.MouseEvent) => {
 console.log(card)
     return dispatch({ type: ACTIONS.SELECT_CARD, payload: card });
   };
