@@ -16,6 +16,7 @@ export const router = createBrowserRouter(
         <Route path="TicTacToc" element={<Tictactoc />} />
         <Route path="Drumkit" element={<DrumKit />} />
         <Route path="Note" element={<Note />} />
+        <Route path="Memory" element={<Memory />} />
         <Route path="*" element={<NotFound />} />
       </Route>
 

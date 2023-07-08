@@ -124,8 +124,7 @@ export const reducer = (state, action) => {
 
       case ACTIONS.DISTANCE_EVERY_SECOND:
         if(state.engineOn){
-          const kmhDistance = (state.actions.speed / 3.6).toFixed(2)
-            return {...state, actions:{...state.actions, kmhDistance: state.actions.kmhDistance + parseFloat(kmhDistance) }}
+            return {...state, actions:{...state.actions, kmhDistance: state.actions.kmhDistance + (state.actions.speed / 3.6) }}
         }
 
 

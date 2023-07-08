@@ -7,7 +7,7 @@ const Navbar = () => {
 
 
       <ul className="navs">
-        {["TicTacToc", "Note", "Drumkit","VanBus"].map((item) => (
+        {["TicTacToc", "Note", "Drumkit","VanBus", "Memory"].map((item) => (
           <li key={`link-${item}`} >
             <div />
             <NavLink to={`${item}`}>{item}</NavLink>
