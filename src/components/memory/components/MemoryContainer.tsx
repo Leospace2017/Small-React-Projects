@@ -7,7 +7,13 @@ import { useMemory } from "../context/MemoryProvider";
 
 export default function MemoryContainer() {
   
-  const{ memoryData, dispatch, handleChoice, shuffleCards, ACTIONS}  = useMemory();
+  const{ memoryData, dispatch, handleChoice, shuffleCards, ACTIONS}:{
+    memoryData: StateType,
+    dispatch : React.Dispatch<ActionType>,
+    handleChoice: any,
+    shuffleCards: () => void,
+    ACTIONS: ActionObject
+} = useMemory();
   useEffect(() => {
     const { firstCard, secondCard } = memoryData.actions;
     console.log(memoryData.actions.firstCard)
@@ -25,10 +31,10 @@ export default function MemoryContainer() {
 
 
   return (
-    <div className="flex flex-col mt-10">
+    <div className="flex flex-col mt-10 gap-1">
         <Header shuffleCards={shuffleCards} turns={memoryData.turns}/>
-      <div className="card-container grid lg:grid-cols-6 grid-cols-3 w-screen gap-[2rem] place-content-center relative">
-        {memoryData.cards.map((card) => (
+      <div className="card-container grid lg:grid-cols-6 grid-cols-4 w-screen gap-[2rem] place-content-center relative">
+        {memoryData.cards.map((card:Card) => (
           <Card
             key={card.id}
             card={card}
