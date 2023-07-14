@@ -7,7 +7,7 @@ import { useMemory } from "../context/MemoryProvider";
 
 export default function MemoryContainer() {
   
-  const { memoryData, dispatch, handleChoice, shuffleCards, ACTIONS} = useMemory();
+  const { memoryData, dispatch, handleChoice, shuffleCards, ACTIONS}: any = useMemory();
   useEffect(() => {
     const { firstCard, secondCard } = memoryData.actions;
     console.log(memoryData.actions.firstCard)
