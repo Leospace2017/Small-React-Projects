@@ -1,21 +1,29 @@
 import { useReducer, createContext, useContext } from "react";
+import Css from "./images/icons8-css3-64.png"
+import Html from "./images/icons8-html-5-64.png"
+import Javascript from "./images/icons8-javascript-64.png"
+import MongoDB from "./images/icons8-mongodb-64.png"
+import Nodejs from "./images/icons8-nodejs-64.png"
+import React from "./images/icons8-react-native-64.png"
+import Sass from "./images/icons8-sass-64.png"
+import Tailwindcss from "./images/icons8-tailwind-css-64.png"
 
 const cardsImages = [
-    { src: "src/components/memory/context/images/icons8-css3-64.png", matched: false },
-    { src: "src/components/memory/context/images/icons8-html-5-64.png", matched: false },
+    { src: Css, matched: false },
+    { src: Html, matched: false },
     {
-        src: "src/components/memory/context/images/icons8-javascript-64.png",
+        src: Javascript,
         matched: false,
     },
-    { src: "src/components/memory/context/images/icons8-mongodb-64.png", matched: false },
-    { src: "src/components/memory/context/images/icons8-nodejs-64.png", matched: false },
+    { src: MongoDB, matched: false },
+    { src: Nodejs, matched: false },
     {
-        src: "src/components/memory/context/images/icons8-react-native-64.png",
+        src: React,
         matched: false,
     },
-    { src: "src/components/memory/context/images/icons8-sass-64.png", matched: false },
+    { src: Sass, matched: false },
     {
-        src: "src/components/memory/context/images/icons8-tailwind-css-64.png",
+        src: Tailwindcss,
         matched: false,
     },
 ];

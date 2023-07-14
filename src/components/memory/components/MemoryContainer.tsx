@@ -7,13 +7,7 @@ import { useMemory } from "../context/MemoryProvider";
 
 export default function MemoryContainer() {
   
-  const{ memoryData, dispatch, handleChoice, shuffleCards, ACTIONS}:{
-    memoryData: StateType,
-    dispatch : React.Dispatch<ActionType>,
-    handleChoice: any,
-    shuffleCards: () => void,
-    ACTIONS: ActionObject
-} = useMemory();
+  const { memoryData, dispatch, handleChoice, shuffleCards, ACTIONS} = useMemory();
   useEffect(() => {
     const { firstCard, secondCard } = memoryData.actions;
     console.log(memoryData.actions.firstCard)
