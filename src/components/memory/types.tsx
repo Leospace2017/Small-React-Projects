@@ -18,17 +18,16 @@ type ActionObject = {
     SHUFFLE_CARDS: string;
     SELECT_CARD: string;
     RESET_TURN: string;
-    CARDS_MATCHED: string;
-    TOGGLE: string;
 };
 
 type ActionType = {
     type:
-        | ActionObject["SHUFFLE_CARDS"] 
+        | { type :ActionObject["SHUFFLE_CARDS"]; cardPayload: Card | null}
         | { type: ActionObject["SELECT_CARD"]; payload: Card }
         | ActionObject["RESET_TURN"]
 
     payload?: any;
+    cardPayload?: any;
 };
 
 
@@ -39,6 +38,8 @@ type MemoryContextValue = {
     memoryData: StateType;
     dispatch: React.Dispatch<ActionType>;
     handleChoice: (card: Card) => void;
-    shuffleCards: () => void;
+    shuffleCards: (card: Card) => void;
     ACTIONS: ActionObject;
+    cardsImages: Card[];
+    isLoading: boolean;
 } | null;

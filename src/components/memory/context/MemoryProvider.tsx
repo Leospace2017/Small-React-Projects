@@ -1,32 +1,35 @@
 import { useReducer, createContext, useContext } from "react";
-import Css from "./images/icons8-css3-64.png"
-import Html from "./images/icons8-html-5-64.png"
-import Javascript from "./images/icons8-javascript-64.png"
-import MongoDB from "./images/icons8-mongodb-64.png"
-import Nodejs from "./images/icons8-nodejs-64.png"
-import React from "./images/icons8-react-native-64.png"
-import Sass from "./images/icons8-sass-64.png"
-import Tailwindcss from "./images/icons8-tailwind-css-64.png"
+import pokemonImageApi from "../../../api/pokemonImageApi";
 
-const cardsImages = [
-    { src: Css, matched: false },
-    { src: Html, matched: false },
-    {
-        src: Javascript,
-        matched: false,
-    },
-    { src: MongoDB, matched: false },
-    { src: Nodejs, matched: false },
-    {
-        src: React,
-        matched: false,
-    },
-    { src: Sass, matched: false },
-    {
-        src: Tailwindcss,
-        matched: false,
-    },
-];
+
+// import Css from "./images/icons8-css3-64.png"
+// import Html from "./images/icons8-html-5-64.png"
+// import Javascript from "./images/icons8-javascript-64.png"
+// import MongoDB from "./images/icons8-mongodb-64.png"
+// import Nodejs from "./images/icons8-nodejs-64.png"
+// import React from "./images/icons8-react-native-64.png"
+// import Sass from "./images/icons8-sass-64.png"
+// import Tailwindcss from "./images/icons8-tailwind-css-64.png"
+
+// const cardsImages = [
+//     { src: Css, matched: false },
+//     { src: Html, matched: false },
+//     {
+//         src: Javascript,
+//         matched: false,
+//     },
+//     { src: MongoDB, matched: false },
+//     { src: Nodejs, matched: false },
+//     {
+//         src: React,
+//         matched: false,
+//     },
+//     { src: Sass, matched: false },
+//     {
+//         src: Tailwindcss,
+//         matched: false,
+//     },
+// ];
 
 const MemoryContext = createContext<MemoryContextValue>(null);
 
@@ -38,8 +41,7 @@ const ACTIONS:ActionObject = {
     SHUFFLE_CARDS: "SHUFFLE_CARDS",
     SELECT_CARD: "SELECT_CARD",
     RESET_TURN: "RESET_TURN",
-    CARDS_MATCHED: "CARDS_MATCHED",
-    TOGGLE: "TOGGLE",
+
 };
 
 function memoryInitial():StateType {
@@ -57,7 +59,7 @@ function memoryInitial():StateType {
 function reducer(state:StateType, action:ActionType):StateType {
     switch (action.type) {
         case ACTIONS.SHUFFLE_CARDS:
-            const shuffledCards = [...cardsImages, ...cardsImages]
+            const shuffledCards = [...action.cardPayload, ...action.cardPayload]
                 .map((card) => ({
                     ...card,
                     id: Math.random().toString(36).slice(2, 9),
@@ -117,15 +119,17 @@ function reducer(state:StateType, action:ActionType):StateType {
         
         export default function MemoryProvider({ children } :{children : React.ReactNode}) {
             const [memoryData, dispatch] = useReducer(reducer, memoryInitial());
+
             
             const handleChoice = (card:Card) => {
                 console.log(card);
                 return dispatch({ type: ACTIONS.SELECT_CARD, payload: card });
             };
             
-            const shuffleCards = () => {
-                return dispatch({ type: ACTIONS.SHUFFLE_CARDS });
+            const shuffleCards = (card:Card) => {
+                return dispatch({ type: ACTIONS.SHUFFLE_CARDS, cardPayload: card });
             };
+            const {cardsImages, isLoading}:any = pokemonImageApi()
             
             return (
                 <MemoryContext.Provider
@@ -135,6 +139,8 @@ function reducer(state:StateType, action:ActionType):StateType {
                     handleChoice,
                     shuffleCards,
                     ACTIONS,
+                    cardsImages,
+                    isLoading
                 }}
                 >
             {children}
