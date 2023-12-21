@@ -114,7 +114,7 @@ export function Drum() {
           onClick={() => handleButtonClick}
         />
       </div>
-      <p className="text-xs">Sounds Path problem with github, if you are interested in the drumkit, just run it on the local machine.</p>
+      <p className="text-xs">Sounds Path connection problem, if you are interested in the drumkit, just run it on the local machine.</p>
     </div>
 
   );
